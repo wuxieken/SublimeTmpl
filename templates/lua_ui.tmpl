@@ -1,0 +1,63 @@
+--[[
+ * ${1:}
+ * file description:UI templete
+ * @authors ${author} (${email})
+ * @date    ${date}
+ * @version \$Id\$
+ * @Powerd by http://www.ieatmobile.cn/
+ * @Copyright 2008-2014 SingingCicada co.,ltd. All  rights reserved	
+--]]
+$0
+
+--[[
+	------------------------------------
+		Area 1： declarations
+		自己，子组件，关联文件
+	------------------------------------	
+]]
+local rtAgent = ...
+local uri = "res://image/06_equip.ccb"
+local stageccb,symbols,selectors = require("gameui").newCCB(rtAgent,nil, uri)
+-- gameui.showSymbolsArea(symbols, _G.g_sysfont12)
+
+--所关联的logic
+local logic = require("glogic.logic_templ")
+
+--reserved： ccb的listeners
+local listeners = {}
+
+--[[
+	------------------------------------
+		Area 2： local functions
+		助手方法，不要公开的方法
+	------------------------------------	
+]]
+
+--reserverd
+local function init( ... )
+	--add your codes
+
+	--reserverd
+	require("gameui").addListeners(selectors,listeners)
+end
+--[[
+	------------------------------------
+		Area 3： self-listeners
+		为自己服务，比如ccb上的
+	------------------------------------	
+]]
+
+listeners.bt_close = function ( ... )
+	require("gameui.fsm").close()
+end
+
+--[[
+	------------------------------------
+		Area 4： events-listeners
+		为其他人服务，比如来自子组件的事件
+	------------------------------------	
+]]
+
+
+
+init()

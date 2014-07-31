@@ -1,4 +1,13 @@
 {
+    "lua_ui": {
+        "syntax": "Packages/Lua/Lua.tmLanguage"
+    },
+    "lua_logic": {
+        "syntax": "Packages/Lua/Lua.tmLanguage"
+    },
+    "lua": {
+        "syntax": "Packages/Lua/Lua.tmLanguage"
+    },
     "html": {
         "syntax": "Packages/HTML/HTML.tmLanguage"
         // ,"extension": "html" # default_extension
@@ -39,8 +48,10 @@
     },
     "date_format" : "%Y-%m-%d %H:%M:%S",
     "attr": {
-        "author": "Your Name" ,
-        "email": "you@example.org",
-        "link": "http://example.org"
+        "author": "Seed★Ken" ,
+        "email": "wuxieken@qq",
+        "link": "http://example.org",
+        "seed": "http://www.ieatmobile.cn/",
+        "copyright": "2008-2014 SingingCicada co.,ltd. All rights reserved"
     }
 }

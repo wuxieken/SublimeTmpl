@@ -1,0 +1,45 @@
+--[[
+ * ${1:}
+ * file description:game.logic templete
+ * @authors ${author} (${email})
+ * @date    ${date}
+ * @version \$Id\$
+ * @Powerd by http://www.ieatmobile.cn/
+ * @Copyright 2008-2014 SingingCicada co.,ltd. All  rights reserved	
+--]]
+$0
+
+--[[
+	------------------------------------
+		Area 1： declarations
+	------------------------------------	
+]]
+local filename = {} -- 建议跟文件名字一样
+
+
+--[[
+	------------------------------------
+		Area 2： get Funtions
+		吐数据：filter & adatpter
+		To:一般是ui_file
+		from:一般是net or persistence or db
+	------------------------------------	
+]]
+
+filename.getBag = function ( ... )
+	return bag;
+end
+
+--[[
+	------------------------------------
+		Area 3： onEvens
+		执行动作，doAction，写数据
+		To：一般是net or persistence or db
+		from：一般是ui_file
+	------------------------------------	
+]]
+
+filename.onFire = function ( ... )
+
+end
+return filename

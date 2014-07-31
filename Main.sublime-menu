@@ -8,6 +8,27 @@
                 "children":
                 [
                     {
+                        "caption": "Lua_ui",
+                        "command": "sublime_tmpl",
+                        "args": {
+                            "type": "lua_ui"
+                        }
+                    },
+                     {
+                        "caption": "Lua_logic",
+                        "command": "sublime_tmpl",
+                        "args": {
+                            "type": "lua_logic"
+                        }
+                    },
+                    {
+                        "caption": "Lua",
+                        "command": "sublime_tmpl",
+                        "args": {
+                            "type": "lua"
+                        }
+                    },
+                    {
                         "caption": "HTML",
                         "command": "sublime_tmpl",
                         "args": {

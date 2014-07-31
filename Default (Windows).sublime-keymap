@@ -1,5 +1,17 @@
 [
-	{
+    {
+        "keys": ["alt+u"], "command": "sublime_tmpl",
+        "args": {"type": "lua_ui"}
+    }
+    ,{
+        "keys": ["alt+g"], "command": "sublime_tmpl",
+        "args": {"type": "lua_logic"}
+    }
+    , {
+        "keys": ["alt+l"], "command": "sublime_tmpl",
+        "args": {"type": "lua"}
+    }
+    ,{
         "keys": ["ctrl+alt+h"], "command": "sublime_tmpl",
         "args": {"type": "html"}
     }
@@ -19,8 +31,8 @@
         "keys": ["ctrl+alt++shift+p"], "command": "sublime_tmpl",
         "args": {"type": "python"}
     }
-    ,{
-        "keys": ["ctrl+alt+r"], "command": "sublime_tmpl",
-        "args": {"type": "ruby"}
-    }
+    // ,{
+        //     "keys": ["ctrl+alt+r"], "command": "sublime_tmpl",
+        //     "args": {"type": "ruby"}
+    // }
 ]
