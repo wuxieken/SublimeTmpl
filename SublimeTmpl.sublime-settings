@@ -1,4 +1,7 @@
 {
+    "lua_obj": {
+        "syntax": "Packages/Lua/Lua.tmLanguage"
+    },
     "lua_ui": {
         "syntax": "Packages/Lua/Lua.tmLanguage"
     },

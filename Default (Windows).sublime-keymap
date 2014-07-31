@@ -1,5 +1,9 @@
 [
     {
+        "keys": ["alt+o"], "command": "sublime_tmpl",
+        "args": {"type": "lua_obj"}
+    }
+    ,{
         "keys": ["alt+u"], "command": "sublime_tmpl",
         "args": {"type": "lua_ui"}
     }
