@@ -1,5 +1,9 @@
 [
     {
+        "keys": ["alt+c"], "command": "sublime_tmpl",
+        "args": {"type": "lua_cmpt"}
+    },
+    {
         "keys": ["alt+o"], "command": "sublime_tmpl",
         "args": {"type": "lua_obj"}
     }

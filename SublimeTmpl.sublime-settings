@@ -1,4 +1,7 @@
 {
+    "lua_cmpt": {
+        "syntax": "Packages/Lua/Lua.tmLanguage"
+    },
     "lua_obj": {
         "syntax": "Packages/Lua/Lua.tmLanguage"
     },
@@ -52,7 +55,7 @@
     "date_format" : "%Y-%m-%d %H:%M:%S",
     "attr": {
         "author": "Seed★Ken" ,
-        "email": "wuxieken@qq",
+        "email": "wuxieken@qq.com",
         "link": "http://example.org",
         "seed": "http://www.ieatmobile.cn/",
         "copyright": "2008-2014 SingingCicada co.,ltd. All rights reserved"

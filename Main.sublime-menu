@@ -8,6 +8,13 @@
                 "children":
                 [
                     {
+                        "caption": "Lua_cmpt",
+                        "command": "sublime_tmpl",
+                        "args": {
+                            "type": "lua_cmpt"
+                        }
+                    },
+                    {
                         "caption": "Lua_ui",
                         "command": "sublime_tmpl",
                         "args": {

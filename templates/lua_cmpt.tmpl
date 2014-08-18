@@ -1,0 +1,95 @@
+--[[
+ * ${1:}
+ * file description:compnet (with ccb) obj templete
+ * @authors ${author} (${email})
+ * @date    ${date}
+ * @version \$Id\$
+ * @Powerd by http://www.ieatmobile.cn/
+ * @Copyright 2008-2014 SingingCicada co.,ltd. All  rights reserved	
+--]]
+$0
+
+--[[
+	------------------------------------
+		Area 1： declarations
+	------------------------------------	
+]]
+local CmptName = {} -- 首字母大写
+
+--所关联的logic
+local tavern = require("glogic.tavern")
+local defaultArgs = {
+	id = 1,
+	col = 1,
+	price = 100
+}
+local uriCCb = "res://image/component_tavern_hero.ccb"
+--[[
+	------------------------------------
+		Area 2： local functions
+		助手方法，不要公开的方法
+	------------------------------------	
+]]
+
+
+--[[
+	------------------------------------
+		Area 3： init functions
+		构造方法
+	------------------------------------	
+]]
+
+function CmptName:__init__(_rtAgent, _fatherNode, _args)
+	_args = _args or defaultArgs
+	-- printTable(_args, 1)
+	self.rtAgent= _rtAgent:newAgent()
+	self.fatherNode = _fatherNode
+	self.ccb, self.symbols, self.selectors = gameui.newCCB(self.rtAgent, self.fatherNode, uriCCb)
+	self.data = _args
+	-- gameui.showSymbolsArea(self.symbols, _G.g_sysfont12)
+
+	--TODO :add tap events
+	local w, h = self:getWH()
+	local x = self.fatherNode.x + w * (_args.col - 1)
+	local y = self.fatherNode.y
+	-- printTable(self.symbols, 1)
+	-- printTable(_args, 1)
+	self.symbols["node_tavern_hero"]:setPosition(x, y)
+	-- _G.setTTfText(self.symbols["font_item_name"], self.data.name)
+	-- _G.setText(self.symbols["num_item_number"], self.data.num)
+	_G.setText(self.symbols["num_hero_price"], self.data.price)
+
+	local node = self.symbols["node_img_hero"]:getNode()
+	node:newImage(_G.tdf.getHeroImgFullUriById(self.data.id))
+	local uiNode = node._ui
+	uiNode:catchTap():withShape(ui.Rect.new(-w/2, -h/2, w, h))
+
+	uiNode.evTapped:addListener(function ( ... )
+		-- body
+		print("CmptName, evTapped, ", self.data.id)
+	end)
+	
+	--add self-listeners
+	self.listeners = {}
+	self.listeners.bt_close = function ( ... )
+		self:remove()
+	end
+	self.listeners["bt_buy"] = function ( ... )
+		require("gameui.tipbox").timedMsgBox(rtAgent, "", "充值功能尚未开放")
+	end
+	require("gameui").addListeners(self.selectors,self.listeners)
+	gameui.addDefaultListener(self.selectors)
+end
+
+--[[
+	------------------------------------
+		Area 4： public functions
+		公开的方法
+	------------------------------------	
+]]
+
+function CmptName:getWH ()
+		return 240, 240
+end
+--path.CmptName
+return define_type('gameui.CmptName', CmptName)
