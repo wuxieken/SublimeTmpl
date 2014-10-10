@@ -15,14 +15,20 @@ $0
 	------------------------------------	
 ]]
 local filename = {} -- 建议跟文件名字一样
-
+local user = require("glogic.user")
+local netHelper = require("glogic.netHelper")
+local alert = require("gameui.tipbox")
 --[[
 	------------------------------------
 		Area 2： local functions
 		助手方法，不要公开的方法
 	------------------------------------	
 ]]
-
+--是否发生更改
+local function check(data)
+	printTable(data, 2)
+	return true
+end
 
 --[[
 	------------------------------------
@@ -45,6 +51,22 @@ end
 		from：一般是ui_file
 	------------------------------------	
 ]]
+filename.set = function (list, cb)
+	-- body
+	if(check(list)) then
+		return netHelper.send(function(data)
+				alert.onConnected()
+				if(data.err) then
+				else
+					--TODO
+					cb()
+				end
+			end, "action", {
+			})
+	else
+		cb()
+	end
+end
 
 filename.onFire = function ( ... )
 

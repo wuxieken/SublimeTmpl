@@ -19,11 +19,10 @@ local CmptName = {} -- 首字母大写
 --所关联的logic
 local tavern = require("glogic.tavern")
 local defaultArgs = {
-	id = 1,
-	col = 1,
-	price = 100
+	
 }
 local uriCCb = "res://image/component_tavern_hero.ccb"
+local alert = require("gameui.tipbox")
 --[[
 	------------------------------------
 		Area 2： local functions
@@ -44,11 +43,19 @@ function CmptName:__init__(_rtAgent, _fatherNode, _args)
 	-- printTable(_args, 1)
 	self.rtAgent= _rtAgent:newAgent()
 	self.fatherNode = _fatherNode
-	self.ccb, self.symbols, self.selectors = gameui.newCCB(self.rtAgent, self.fatherNode, uriCCb)
+	self.ccb, self.symbols, self.selectors = require("gameui").newCCB(self.rtAgent, self.fatherNode, uriCCb)
 	self.data = _args
 	-- gameui.showSymbolsArea(self.symbols, _G.g_sysfont12)
 
-	--TODO :add tap events
+	--screenmask
+	local ScreenMask = requireClass("ui.ScreenMask")
+	local uinode = self.ccb:getNode()._ui
+	uinode:withShape(ScreenMask.new())
+	uinode:catchTap() --给定捕获类型
+	uinode:catchDrag()
+	uinode:catchHold()
+
+	--TODO: set
 	local w, h = self:getWH()
 	local x = self.fatherNode.x + w * (_args.col - 1)
 	local y = self.fatherNode.y
@@ -61,6 +68,8 @@ function CmptName:__init__(_rtAgent, _fatherNode, _args)
 
 	local node = self.symbols["node_img_hero"]:getNode()
 	node:newImage(_G.tdf.getHeroImgFullUriById(self.data.id))
+	
+	--TODO :add tap events
 	local uiNode = node._ui
 	uiNode:catchTap():withShape(ui.Rect.new(-w/2, -h/2, w, h))
 
@@ -88,6 +97,12 @@ end
 	------------------------------------	
 ]]
 
+function CmptName:remove( ... )
+	-- body
+	if(self.ccb) then
+		self.ccb:remove()
+	end
+end
 function CmptName:getWH ()
 		return 240, 240
 end
