@@ -101,6 +101,11 @@ function CmptName:remove( ... )
 	-- body
 	if(self.ccb) then
 		self.ccb:remove()
+		self.ccb = nil
+	end
+	if(self.rtAgent) then
+		self.rtAgent:remove()
+		self.rtAgent = nil
 	end
 end
 function CmptName:getWH ()

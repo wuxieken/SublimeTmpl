@@ -15,9 +15,9 @@ $0
 		自己，子组件，关联文件
 	------------------------------------	
 ]]
-local rtAgent = ...
+local rtAgent, fatherNode = ...
 local uri = "res://image/06_equip.ccb"
-local stageccb,symbols,selectors = require("gameui").newCCB(rtAgent,nil, uri)
+local stageccb,symbols,selectors = require("gameui").newCCB(rtAgent,fatherNode, uri)
 -- gameui.showSymbolsArea(symbols, _G.g_sysfont12)
 
 --所关联的logic
